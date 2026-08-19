@@ -65,41 +65,41 @@ export function Hero() {
       ref={ref}
       className="relative isolate flex min-h-[100svh] items-center justify-center overflow-hidden px-4 pt-24 sm:pt-28"
     >
-      {/* AMBIENT GLOWS */}
+      {/* AMBIENT GLOWS — subtle, refined */}
       <div className="pointer-events-none absolute inset-0 z-0">
-        <div className="ambient-glow left-1/2 top-[-12%] h-[560px] w-[560px] -translate-x-1/2 bg-[#d4af37]/35 animate-pulse-glow" />
-        <div className="ambient-glow left-[-10%] top-1/3 h-[400px] w-[400px] bg-[#b8932f]/25" />
-        <div className="ambient-glow right-[-10%] bottom-1/4 h-[460px] w-[460px] bg-[#f5d77a]/20" />
+        <div className="ambient-glow left-1/2 top-[-8%] h-[440px] w-[440px] -translate-x-1/2 bg-[#d4af37]/16 animate-pulse-glow" />
+        <div className="ambient-glow left-[-8%] top-1/3 h-[300px] w-[300px] bg-[#b8932f]/10" />
+        <div className="ambient-glow right-[-8%] bottom-1/4 h-[360px] w-[360px] bg-[#f5d77a]/8" />
       </div>
 
-      {/* GRID BACKDROP */}
+      {/* GRID BACKDROP — barely there */}
       <div
-        className="pointer-events-none absolute inset-0 z-0 opacity-[0.22]"
+        className="pointer-events-none absolute inset-0 z-0 opacity-[0.12]"
         style={{
           backgroundImage:
-            "linear-gradient(to right, rgba(255,255,255,0.10) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.10) 1px, transparent 1px)",
-          backgroundSize: "64px 64px",
+            "linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px)",
+          backgroundSize: "72px 72px",
           maskImage:
-            "radial-gradient(ellipse 85% 65% at 50% 42%, black, transparent 72%)",
+            "radial-gradient(ellipse 75% 60% at 50% 45%, black, transparent 70%)",
           WebkitMaskImage:
-            "radial-gradient(ellipse 85% 65% at 50% 42%, black, transparent 72%)",
+            "radial-gradient(ellipse 75% 60% at 50% 45%, black, transparent 70%)",
         }}
       />
 
-      {/* 3D ORB */}
+      {/* 3D ORB — elegant, softer */}
       <motion.div
-        style={{ y: yOrb, opacity, rotateX: rotX, rotateY: rotY, transformPerspective: 1200 }}
-        className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[min(720px,86vw)] w-[min(720px,86vw)] -translate-x-1/2 -translate-y-1/2"
+        style={{ y: yOrb, opacity, rotateX: rotX, rotateY: rotY, transformPerspective: 1400 }}
+        className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[min(560px,68vw)] w-[min(560px,68vw)] -translate-x-1/2 -translate-y-1/2"
       >
         <div className="relative h-full w-full">
           {/* morphing liquid blob */}
-          <div className="absolute inset-[8%] animate-morph bg-gradient-to-br from-[#f5d77a] via-[#d4af37] to-[#7a5c1e] shadow-[0_0_160px_rgba(212,175,55,0.55),inset_0_0_80px_rgba(0,0,0,0.35)]" />
+          <div className="absolute inset-[10%] animate-morph bg-gradient-to-br from-[#f5d77a] via-[#d4af37] to-[#8a6a25] shadow-[0_0_90px_rgba(212,175,55,0.28),inset_0_0_60px_rgba(0,0,0,0.45)]" />
           {/* chrome rings */}
-          <div className="absolute inset-0 animate-spin-slow rounded-full border border-white/12" />
-          <div className="absolute inset-[6%] animate-spin-slow rounded-full border border-white/6 [animation-direction:reverse]" />
-          <div className="absolute inset-[22%] animate-spin-slow rounded-full border border-[#f5d77a]/25" />
+          <div className="absolute inset-0 animate-spin-slow rounded-full border border-white/8" />
+          <div className="absolute inset-[8%] animate-spin-slow rounded-full border border-white/4 [animation-direction:reverse]" />
+          <div className="absolute inset-[24%] animate-spin-slow rounded-full border border-[#f5d77a]/15" />
           {/* highlight */}
-          <div className="absolute left-1/2 top-1/2 h-1/2 w-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-tr from-transparent via-white/15 to-white/40 blur-2xl" />
+          <div className="absolute left-1/2 top-1/2 h-1/2 w-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-tr from-transparent via-white/10 to-white/25 blur-2xl" />
         </div>
       </motion.div>
 
