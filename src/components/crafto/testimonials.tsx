@@ -7,51 +7,50 @@ import { Star } from "lucide-react";
 const QUOTES = [
   {
     quote:
-      "Crafto didn't just redesign our site — they re-architected our funnel. Signups jumped 61% in the first month.",
-    name: "Maya Lindqvist",
-    role: "CEO, Lumen SaaS",
+      "Hamari coaching ki website pe ab admissions ke liye log khud call kar rahe hain. Pehle sirf pamphlets bant'e the — ab Google pe top par aa gaye.",
+    name: "Rahul Verma",
+    role: "Director, BrightMinds Coaching, Pune",
   },
   {
     quote:
-      "The most design-obsessed team we've ever hired. Every interaction has intent. Awwwards-worthy, genuinely.",
-    name: "Devon Park",
-    role: "Founder, Vertex Studio",
+      "Our clinic's old site looked like it was made in 2010. Crafto built something patients actually trust — bookings doubled in two months.",
+    name: "Dr. Anjali Deshmukh",
+    role: "Owner, Govindji Dental Care",
   },
   {
     quote:
-      "We hit a 2.1× AOV lift after the rebuild. The 3D product pages alone paid for the project in a quarter.",
-    name: "Sara Okafor",
-    role: "CMO, Nova Commerce",
+      "Mere boutique ke liye bilingual site chahiye thi — Hindi aur English dono. They understood exactly what a local brand needs. Shandar kaam.",
+    name: "Priya Nair",
+    role: "Founder, Sutraa Boutique, Kochi",
   },
   {
     quote:
-      "Fast, senior, no hand-holding required. They shipped early and kept optimizing. Rare combo.",
-    name: "Alex Tan",
-    role: "Head of Product, Aurora Finance",
+      "From our sweet shop in Lucknow to orders across UP — the website changed everything. Simple, fast, and our customers love it.",
+    name: "Mohammed Faiz",
+    role: "Owner, Royal Mishthan Bhandar",
   },
 ];
 
 function QuoteCard({ q }: { q: (typeof QUOTES)[number] }) {
   return (
-    <figure className="edge relative w-[88vw] shrink-0 overflow-hidden rounded-[2rem] p-8 sm:w-[28rem]">
-      <div className="pointer-events-none absolute -right-1/4 -top-1/3 h-2/3 w-2/3 rounded-full bg-gradient-to-br from-[#d4af37]/15 to-transparent blur-3xl" />
-      <div className="relative flex items-center gap-1 text-[#f5d77a]">
+    <figure className="edge relative w-[88vw] shrink-0 overflow-hidden p-8 sm:w-[28rem]" style={{ background: "#fff9c4" }}>
+      <div className="relative flex items-center gap-1 text-[#ff4d4d]">
         {Array.from({ length: 5 }).map((_, i) => (
           <Star key={i} size={14} fill="currentColor" />
         ))}
       </div>
-      <blockquote className="relative mt-5 text-lg font-medium leading-snug text-white sm:text-xl">
+      <blockquote className="relative mt-5 font-hand text-lg font-medium leading-snug text-[#2d2d2d] sm:text-xl">
         “{q.quote}”
       </blockquote>
       <figcaption className="relative mt-6 flex items-center gap-3">
-        <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-[#f5d77a] to-[#b8932f] font-display text-sm font-bold text-black">
+        <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#2d5da1] font-marker text-sm font-bold text-white">
           {q.name.charAt(0)}
         </span>
         <span>
-          <span className="block text-sm font-semibold text-white">
+          <span className="block font-hand text-sm font-semibold text-[#2d2d2d]">
             {q.name}
           </span>
-          <span className="block text-xs text-white/50">{q.role}</span>
+          <span className="block font-hand text-xs text-[#2d2d2d]/50">{q.role}</span>
         </span>
       </figcaption>
     </figure>
@@ -61,7 +60,7 @@ function QuoteCard({ q }: { q: (typeof QUOTES)[number] }) {
 export function Testimonials() {
   const doubled = [...QUOTES, ...QUOTES, ...QUOTES];
   return (
-    <section id="studio" className="relative overflow-hidden py-24 sm:py-32">
+    <section id="studio" className="relative overflow-hidden bg-[#e5e0d8] py-24 sm:py-32">
       {/* header */}
       <div className="mx-auto mb-14 max-w-6xl px-4">
         <motion.div
@@ -72,17 +71,17 @@ export function Testimonials() {
           className="flex flex-col items-start gap-4 sm:flex-row sm:items-end sm:justify-between"
         >
           <div>
-            <span className="text-xs font-medium uppercase tracking-[0.3em] text-[#f5d77a]/80">
-              Loved by founders
+            <span className="font-hand text-xs font-medium uppercase tracking-[0.3em] text-[#ff4d4d]/80">
+              Loved by business owners
             </span>
-            <h2 className="mt-3 max-w-xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl">
+            <h2 className="mt-3 max-w-xl font-marker text-4xl font-bold leading-[1.05] tracking-tight text-[#2d2d2d] sm:text-5xl md:text-6xl">
               Don&apos;t take our{" "}
-              <span className="text-gold-gradient">word</span>.
+              <span className="text-[#ff4d4d]">word</span>.
             </h2>
           </div>
-          <p className="max-w-sm text-sm text-white/55 sm:text-base">
-            4.9 / 5 average rating across 40+ engagements. We measure success
-            in your outcomes — not deliverables.
+          <p className="max-w-sm font-hand text-sm text-[#2d2d2d]/60 sm:text-base">
+            4.9 / 5 average rating across 200+ local businesses. We measure
+            success in your outcomes — not deliverables.
           </p>
         </motion.div>
       </div>
@@ -103,19 +102,19 @@ export function Testimonials() {
       {/* stats strip */}
       <div className="mx-auto mt-20 grid max-w-5xl grid-cols-2 gap-4 px-4 sm:grid-cols-4">
         {[
-          { v: "120M+", l: "Revenue influenced" },
-          { v: "40+", l: "Projects shipped" },
+          { v: "₹10L+", l: "Revenue influenced" },
+          { v: "200+", l: "Businesses served" },
           { v: "4.9/5", l: "Avg client rating" },
-          { v: "9 days", l: "Median time to v1" },
+          { v: "7 din", l: "Median time to v1" },
         ].map((s) => (
           <div
             key={s.l}
-            className="rounded-2xl border border-white/8 bg-white/[0.02] p-6 text-center"
+            className="border-2 border-[#2d2d2d] bg-white p-6 text-center shadow-hard-sm"
           >
-            <div className="font-display text-3xl font-bold text-gold-gradient sm:text-4xl">
+            <div className="font-marker text-3xl font-bold text-[#ff4d4d] sm:text-4xl">
               {s.v}
             </div>
-            <div className="mt-1 text-xs uppercase tracking-[0.2em] text-white/45">
+            <div className="mt-1 font-hand text-xs uppercase tracking-[0.2em] text-[#2d2d2d]/50">
               {s.l}
             </div>
           </div>

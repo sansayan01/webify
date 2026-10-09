@@ -11,45 +11,54 @@ type Project = {
   result: string;
   year: string;
   image: string;
-  href: string; // placeholder link — user will provide later
+  href: string; // live project URL
 };
 
 const PROJECTS: Project[] = [
   {
-    id: "aurora",
-    title: "Aurora Finance",
-    category: "Fintech · Dashboard",
-    result: "40% faster load · +22% activation",
-    year: "2024",
-    image: "/projects/project-1.png",
-    href: "#", // placeholder
+    id: "microflow-pro",
+    title: "MicroFlow Pro",
+    category: "SaaS · Web App",
+    result: "Marketing site & product platform",
+    year: "2025",
+    image: "https://image.thum.io/get/width/1200/url/https://microflow-pro.vercel.app/",
+    href: "https://microflow-pro.vercel.app/",
   },
   {
-    id: "nova",
-    title: "Nova Commerce",
-    category: "E-commerce · Storefront",
-    result: "+38% conversion · 2.1× AOV",
-    year: "2024",
-    image: "/projects/project-2.png",
-    href: "#", // placeholder
+    id: "hfburdwan",
+    title: "HF Burdwan",
+    category: "Education · Institute Site",
+    result: "Brand site & student portal",
+    year: "2025",
+    image: "https://image.thum.io/get/width/1200/url/https://hfburdwan.in/",
+    href: "https://hfburdwan.in/",
   },
   {
-    id: "vertex",
-    title: "Vertex Studio",
-    category: "3D · Brand Site",
-    result: "Awwwards SOTD · 4.9★",
-    year: "2023",
-    image: "/projects/project-3.png",
-    href: "#", // placeholder
+    id: "hfburdwan-dashboard",
+    title: "HF Burdwan — Dashboard",
+    category: "Admin · Web App",
+    result: "Internal dashboard & analytics",
+    year: "2025",
+    image: "https://image.thum.io/get/width/1200/url/https://dashboard.hfburdwan.in/",
+    href: "https://dashboard.hfburdwan.in/",
   },
   {
-    id: "lumen",
-    title: "Lumen SaaS",
-    category: "SaaS · Platform",
-    result: "−54% bounce · +61% signups",
-    year: "2023",
-    image: "/projects/project-4.png",
-    href: "#", // placeholder
+    id: "govindji-dental",
+    title: "Govindji Dental",
+    category: "Healthcare · Clinic Site",
+    result: "Clinic site with appointment booking",
+    year: "2025",
+    image: "https://image.thum.io/get/width/1200/url/https://govindji-dental.vercel.app/",
+    href: "https://govindji-dental.vercel.app/",
+  },
+  {
+    id: "mcc",
+    title: "MCC",
+    category: "Community · Framer Site",
+    result: "Community site & resources hub",
+    year: "2025",
+    image: "https://image.thum.io/get/width/1200/url/https://mcc.framer.wiki/",
+    href: "https://mcc.framer.wiki/",
   },
 ];
 
@@ -102,15 +111,15 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         href={project.href}
         target={project.href !== "#" ? "_blank" : undefined}
         rel={project.href !== "#" ? "noopener noreferrer" : undefined}
-        className="group block [perspective:1400px]"
+        className="group block"
         aria-label={`${project.title} — ${project.category}`}
       >
         <motion.div
           ref={ref}
           onMouseMove={onMove}
           onMouseLeave={onLeave}
-          style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-          className="edge relative overflow-hidden rounded-[2rem]"
+          style={{ rotateX, rotateY }}
+          className="edge relative overflow-hidden"
         >
           {/* image */}
           <div className="relative aspect-[16/10] overflow-hidden">
@@ -122,34 +131,19 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               loading="lazy"
             />
             {/* gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.10_0.005_270)] via-transparent to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-transparent" />
-
-            {/* glare */}
-            <motion.div
-              aria-hidden
-              className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-              style={{
-                background: useTransform(
-                  [glareX, glareY],
-                  ([gx, gy]) =>
-                    `radial-gradient(600px circle at ${gx} ${gy}, rgba(245,215,122,0.22), transparent 40%)`
-                ),
-              }}
-            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#e5e0d8] via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#2d2d2d]/40 via-transparent to-transparent" />
 
             {/* year badge */}
             <span
-              className="absolute right-4 top-4 rounded-full border border-white/15 bg-black/40 px-3 py-1 text-xs font-medium text-white/70 backdrop-blur"
-              style={{ transform: "translateZ(60px)" }}
+              className="absolute right-4 top-4 border-2 border-[#2d2d2d] bg-[#fff9c4] px-3 py-1 font-hand text-xs font-medium text-[#2d2d2d]"
             >
               {project.year}
             </span>
 
             {/* hover CTA */}
             <motion.span
-              className="absolute bottom-4 right-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#f5d77a] to-[#d4af37] text-black shadow-[0_8px_30px_rgba(212,175,55,0.5)]"
-              style={{ transform: "translateZ(80px)" }}
+              className="absolute bottom-4 right-4 inline-flex h-12 w-12 items-center justify-center bg-[#ff4d4d] text-white shadow-hard-sm"
               initial={{ scale: 0.6, opacity: 0 }}
               whileHover={{ scale: 1.05 }}
               animate={{}}
@@ -161,21 +155,20 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           {/* meta */}
           <div
             className="flex items-end justify-between gap-4 p-6 sm:p-8"
-            style={{ transform: "translateZ(40px)" }}
           >
             <div>
-              <span className="text-xs font-medium uppercase tracking-[0.2em] text-[#f5d77a]/80">
+              <span className="font-hand text-xs font-medium uppercase tracking-[0.2em] text-[#ff4d4d]/80">
                 {project.category}
               </span>
-              <h3 className="mt-2 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              <h3 className="mt-2 font-marker text-3xl font-bold tracking-tight text-[#2d2d2d] sm:text-4xl">
                 {project.title}
               </h3>
             </div>
             <div className="text-right">
-              <span className="block text-[11px] uppercase tracking-[0.2em] text-white/40">
+              <span className="block font-hand text-[11px] uppercase tracking-[0.2em] text-[#2d2d2d]/40">
                 Result
               </span>
-              <span className="block text-sm font-semibold text-white/85">
+              <span className="block font-hand text-sm font-semibold text-[#2d2d2d]/85">
                 {project.result}
               </span>
             </div>
@@ -193,17 +186,17 @@ export function Portfolio() {
         {/* header */}
         <div className="mb-14 flex flex-col items-start gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <span className="text-xs font-medium uppercase tracking-[0.3em] text-[#f5d77a]/80">
+            <span className="font-hand text-xs font-medium uppercase tracking-[0.3em] text-[#ff4d4d]/80">
               Selected work
             </span>
-            <h2 className="mt-3 max-w-xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl">
+            <h2 className="mt-3 max-w-xl font-marker text-4xl font-bold leading-[1.05] tracking-tight text-[#2d2d2d] sm:text-5xl">
               Work that{" "}
-              <span className="text-gold-gradient">moves metrics</span>.
+              <span className="text-[#ff4d4d]">moves metrics</span>.
             </h2>
           </div>
-          <p className="max-w-sm text-sm text-white/55 sm:text-base">
-            A peek at recent launches. Hover to tilt, click to view. Final
-            project links will be dropped in soon.
+          <p className="max-w-sm font-hand text-sm text-[#2d2d2d]/60 sm:text-base">
+            A peek at recent launches. Hover to tilt, click to open the live
+            site.
           </p>
         </div>
 
@@ -218,12 +211,12 @@ export function Portfolio() {
         <div className="mt-14 flex items-center justify-center">
           <a
             href="#contact"
-            className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium text-white/80 backdrop-blur transition-colors hover:bg-white/10"
+            className="group inline-flex items-center gap-2 border-2 border-[#2d2d2d] bg-white px-6 py-3 font-hand text-sm font-medium text-[#2d2d2d] shadow-hard-sm transition-all hover:translate-x-1 hover:translate-y-1"
           >
             See full case studies
             <ExternalLink
               size={14}
-              className="text-[#f5d77a] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              className="text-[#ff4d4d] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
             />
           </a>
         </div>

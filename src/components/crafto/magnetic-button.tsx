@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 
 /**
  * Magnetic button — subtly pulls toward the cursor as it approaches.
+ * Hand-drawn style: wobbly oval, hard shadow, press-flat on active.
  * Renders either an <a> or <button> depending on `href`.
  */
 type MagneticButtonProps = {
@@ -49,7 +50,7 @@ export function MagneticButton({
   };
 
   const baseClass = cn(
-    "group relative inline-flex items-center justify-center overflow-hidden rounded-full font-medium tracking-wide will-change-transform",
+    "hd-btn group relative inline-flex items-center justify-center overflow-hidden font-hand text-lg font-medium tracking-wide will-change-transform",
     className
   );
 

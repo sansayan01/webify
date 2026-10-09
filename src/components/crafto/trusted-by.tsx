@@ -4,25 +4,25 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const CLIENTS = [
-  "Aurora",
-  "Nebula Labs",
-  "Vertex",
-  "Lumen",
-  "Monolith",
-  "Polaris",
-  "Northwind",
-  "Atlas",
-  "Quanta",
-  "Helix",
+  "Sharma ji ka Dhaba",
+  "Patel Electronics",
+  "BrightMinds Coaching",
+  "Royal Mishthan Bhandar",
+  "Sutraa Boutique",
+  "Govindji Dental",
+  "Kumar Tutorials",
+  "Mehta Saree House",
+  "Verma Auto Garage",
+  "Reddy Realty",
 ];
 
 function Row({ reverse = false }: { reverse?: boolean }) {
   return (
-    <div className="flex w-max gap-12 pr-12">
+    <div className={`flex w-max gap-12 pr-12 ${reverse ? "rotate-0 sm:-rotate-1" : "rotate-0 sm:rotate-1"}`}>
       {[...CLIENTS, ...CLIENTS].map((c, i) => (
         <span
           key={`${c}-${i}`}
-          className="font-display text-2xl font-semibold tracking-tight text-white/35 transition-colors hover:text-[#f5d77a] sm:text-3xl"
+          className="font-marker text-2xl font-semibold tracking-tight text-[#2d2d2d]/40 transition-colors hover:text-[#ff4d4d] sm:text-3xl"
         >
           {c}
         </span>
@@ -33,15 +33,15 @@ function Row({ reverse = false }: { reverse?: boolean }) {
 
 export function TrustedBy() {
   return (
-    <section className="relative border-y border-white/5 bg-[oklch(0.11_0.005_270)] py-10">
+    <section className="relative border-y-2 border-[#2d2d2d] bg-[#e5e0d8] py-10">
       <motion.p
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="mb-6 text-center text-[11px] font-medium uppercase tracking-[0.3em] text-white/40"
+        className="mb-6 text-center font-hand text-[11px] font-medium uppercase tracking-[0.3em] text-[#2d2d2d]/50"
       >
-        Trusted by forward-thinking teams
+        Trusted by local businesses near you
       </motion.p>
 
       <div className="relative flex flex-col gap-3 overflow-hidden">

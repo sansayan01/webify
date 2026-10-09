@@ -1,50 +1,45 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Syne } from "next/font/google";
+import { Kalam, Patrick_Hand } from "next/font/google";
 import "./globals.css";
 import { Toaster as SonnerToaster } from "sonner";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const kalam = Kalam({
+  variable: "--font-marker",
   subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const patrickHand = Patrick_Hand({
+  variable: "--font-hand",
   subsets: ["latin"],
-});
-
-const syne = Syne({
-  variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
-  title: "Crafto — We Craft Digital Perfection",
+  title: "Crafto — Websites That Help Local Businesses Grow",
   description:
-    "Crafto is a premium web agency designing high-performance, immersive digital experiences. We craft websites that turn visitors into customers.",
+    "Crafto is a web agency that helps local businesses grow with websites that turn visitors into customers. Hand-crafted, fast, and made for your community.",
   keywords: [
     "Crafto",
-    "web agency",
-    "premium web design",
-    "WebGL",
-    "3D websites",
-    "UI/UX",
+    "local business websites",
+    "web design",
+    "small business",
+    "local SEO",
     "Next.js agency",
   ],
   authors: [{ name: "Crafto Studio" }],
   openGraph: {
-    title: "Crafto — We Craft Digital Perfection",
+    title: "Crafto — Websites That Help Local Businesses Grow",
     description:
-      "A premium web agency building immersive, high-performance digital experiences.",
+      "A web agency building websites that help local businesses get found and grow.",
     siteName: "Crafto",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Crafto — We Craft Digital Perfection",
+    title: "Crafto — Websites That Help Local Businesses Grow",
     description:
-      "A premium web agency building immersive, high-performance digital experiences.",
+      "A web agency building websites that help local businesses get found and grow.",
   },
 };
 
@@ -54,18 +49,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="dark">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${syne.variable} antialiased bg-background text-foreground`}
+        className={`${kalam.variable} ${patrickHand.variable} antialiased bg-background text-foreground`}
       >
         {children}
         <SonnerToaster
           position="bottom-right"
           toastOptions={{
             style: {
-              background: "#0f0f12",
-              border: "1px solid rgba(245,215,122,0.25)",
-              color: "#f6f5f1",
+              background: "#ffffff",
+              border: "3px solid #2d2d2d",
+              borderRadius: "12px",
+              color: "#2d2d2d",
+              fontFamily: "var(--font-hand), 'Patrick Hand', cursive",
+              boxShadow: "4px 4px 0px 0px #2d2d2d",
             },
           }}
         />

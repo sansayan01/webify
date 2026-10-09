@@ -6,9 +6,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-display: var(--font-display);
+  --font-sans: var(--font-hand);
+  --font-mono: var(--font-marker);
+  --font-display: var(--font-marker);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -44,78 +44,58 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-/* ============ CRAFTO "MIDNIGHT & CHROME" THEME ============ */
+/* ============ CRAFTO "HAND-DRAWN" THEME ============ */
 :root {
   --radius: 0.875rem;
 
-  /* Midnight base */
-  --background: oklch(0.10 0.005 270);          /* deep matte black w/ slate tint */
-  --foreground: oklch(0.97 0.005 90);           /* off-white silver */
+  /* Warm paper base */
+  --background: #fdfbf7;          /* warm paper white */
+  --foreground: #2d2d2d;          /* soft pencil black */
 
-  --card: oklch(0.135 0.008 270);
-  --card-foreground: oklch(0.97 0.005 90);
-  --popover: oklch(0.135 0.008 270);
-  --popover-foreground: oklch(0.97 0.005 90);
+  --card: #ffffff;
+  --card-foreground: #2d2d2d;
+  --popover: #ffffff;
+  --popover-foreground: #2d2d2d;
 
-  /* Warm liquid gold primary */
-  --primary: oklch(0.82 0.13 84);                /* warm gold */
-  --primary-foreground: oklch(0.12 0.005 270);
+  /* Correction marker red */
+  --primary: #ff4d4d;
+  --primary-foreground: #ffffff;
 
-  --secondary: oklch(0.18 0.01 270);
-  --secondary-foreground: oklch(0.97 0.005 90);
-  --muted: oklch(0.18 0.01 270);
-  --muted-foreground: oklch(0.65 0.01 90);
-  --accent: oklch(0.22 0.02 270);
-  --accent-foreground: oklch(0.97 0.005 90);
+  --secondary: #e5e0d8;           /* old paper / erased pencil */
+  --secondary-foreground: #2d2d2d;
+  --muted: #e5e0d8;
+  --muted-foreground: #6b6560;
+  --accent: #2d5da1;             /* blue ballpoint pen */
+  --accent-foreground: #ffffff;
 
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 8%);
-  --input: oklch(1 0 0 / 10%);
-  --ring: oklch(0.82 0.13 84);
+  --destructive: #ff4d4d;
+  --border: #2d2d2d;             /* pencil lead */
+  --input: #2d2d2d;
+  --ring: #ff4d4d;
 
-  --chart-1: oklch(0.82 0.13 84);
-  --chart-2: oklch(0.72 0.10 70);
-  --chart-3: oklch(0.60 0.08 60);
-  --chart-4: oklch(0.90 0.02 90);
-  --chart-5: oklch(0.50 0.05 50);
+  --chart-1: #ff4d4d;
+  --chart-2: #2d5da1;
+  --chart-3: #e5e0d8;
+  --chart-4: #2d2d2d;
+  --chart-5: #fff9c4;
 
-  --sidebar: oklch(0.12 0.005 270);
-  --sidebar-foreground: oklch(0.97 0.005 90);
-  --sidebar-primary: oklch(0.82 0.13 84);
-  --sidebar-primary-foreground: oklch(0.12 0.005 270);
-  --sidebar-accent: oklch(0.18 0.01 270);
-  --sidebar-accent-foreground: oklch(0.97 0.005 90);
-  --sidebar-border: oklch(1 0 0 / 8%);
-  --sidebar-ring: oklch(0.82 0.13 84);
+  --sidebar: #fdfbf7;
+  --sidebar-foreground: #2d2d2d;
+  --sidebar-primary: #ff4d4d;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e5e0d8;
+  --sidebar-accent-foreground: #2d2d2d;
+  --sidebar-border: #2d2d2d;
+  --sidebar-ring: #ff4d4d;
 
   /* Crafto custom tokens */
-  --gold: #d4af37;
-  --gold-bright: #f5d77a;
-  --gold-soft: #b8932f;
-  --chrome: #c8c9c1;
-  --ink: #0a0a0a;
-  --ink-2: #0f172a;
-}
-
-.dark {
-  --background: oklch(0.10 0.005 270);
-  --foreground: oklch(0.97 0.005 90);
-  --card: oklch(0.135 0.008 270);
-  --card-foreground: oklch(0.97 0.005 90);
-  --popover: oklch(0.135 0.008 270);
-  --popover-foreground: oklch(0.97 0.005 90);
-  --primary: oklch(0.82 0.13 84);
-  --primary-foreground: oklch(0.12 0.005 270);
-  --secondary: oklch(0.18 0.01 270);
-  --secondary-foreground: oklch(0.97 0.005 90);
-  --muted: oklch(0.18 0.01 270);
-  --muted-foreground: oklch(0.65 0.01 90);
-  --accent: oklch(0.22 0.02 270);
-  --accent-foreground: oklch(0.97 0.005 90);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 8%);
-  --input: oklch(1 0 0 / 10%);
-  --ring: oklch(0.82 0.13 84);
+  --paper: #fdfbf7;
+  --pencil: #2d2d2d;
+  --old-paper: #e5e0d8;
+  --marker-red: #ff4d4d;
+  --pen-blue: #2d5da1;
+  --postit: #fff9c4;
+  --ink: #2d2d2d;
 }
 
 @layer base {
@@ -128,58 +108,58 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-hand), "Patrick Hand", cursive;
     font-feature-settings: "ss01", "cv11";
     overflow-x: hidden;
+    /* Paper texture: notebook dots */
+    background-image: radial-gradient(#e5e0d8 1px, transparent 1px);
+    background-size: 24px 24px;
   }
   ::selection {
-    background: var(--gold);
-    color: var(--ink);
-  }
-}
-
-/* ============ CUSTOM CURSOR (hide default on desktop) ============ */
-@media (hover: hover) and (pointer: fine) {
-  * {
-    cursor: none !important;
+    background: var(--marker-red);
+    color: #ffffff;
   }
 }
 
 /* ============ TYPOGRAPHY HELPERS ============ */
-.font-display {
-  font-family: var(--font-display), var(--font-geist-sans), sans-serif;
+.font-marker {
+  font-family: var(--font-marker), "Kalam", cursive;
+}
+.font-hand {
+  font-family: var(--font-hand), "Patrick Hand", cursive;
+}
+
+/* ============ ACCESSIBILITY: KEYBOARD FOCUS ============ */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[role="button"]:focus-visible {
+  outline: 3px solid var(--pen-blue);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ============ CUSTOM PENCIL CURSOR ============ */
+/* Hide the native cursor only when the hand-drawn cursor is active
+   (fine pointer + hover). Touch devices keep the system cursor. */
+@media (hover: hover) and (pointer: fine) {
+  html.custom-cursor-active,
+  html.custom-cursor-active * {
+    cursor: none !important;
+  }
 }
 
 .text-balance {
   text-wrap: balance;
 }
 
-/* Premium gradient text */
-.text-gold-gradient {
-  background: linear-gradient(135deg, #f5d77a 0%, #d4af37 40%, #b8932f 70%, #f5d77a 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: 200% 200%;
-}
-
-.text-chrome-gradient {
-  background: linear-gradient(180deg, #ffffff 0%, #c8c9c1 50%, #8a8b85 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* ============ AMBIENT GLOWS & ORBS ============ */
-.ambient-glow {
-  position: absolute;
-  border-radius: 9999px;
-  filter: blur(80px);
-  pointer-events: none;
-  will-change: transform, opacity;
-}
-
-.grain {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+/* Hand-drawn marker underline (wavy) */
+.text-wavy-underline {
+  text-decoration: underline wavy var(--marker-red);
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
 }
 
 /* ============ MARQUEE ============ */
@@ -255,15 +235,15 @@
   height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: oklch(0.10 0.005 270);
+  background: #f0ebe3;
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #b8932f, #6f5316);
+  background: #2d2d2d;
   border-radius: 9999px;
-  border: 2px solid oklch(0.10 0.005 270);
+  border: 2px solid #f0ebe3;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #f5d77a, #b8932f);
+  background: #ff4d4d;
 }
 
 /* ============ UTILITY: hide scrollbar on horizontal sections ============ */
@@ -279,20 +259,49 @@
 /* premium card edge */
 .edge {
   position: relative;
-  border: 1px solid oklch(1 0 0 / 8%);
-  background:
-    linear-gradient(oklch(1 0 0 / 4%), oklch(0 0 0 / 0%)),
-    oklch(0.16 0.01 270);
+  border: 2px solid #2d2d2d;
+  background: #ffffff;
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  box-shadow: 4px 4px 0px 0px #2d2d2d;
 }
-.edge::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(140deg, oklch(1 0 0 / 18%) 0%, transparent 40%, transparent 60%, oklch(0.82 0.13 84 / 30%) 100%);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-  pointer-events: none;
+
+/* Wobbly border helpers */
+.wobbly {
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+}
+.wobbly-md {
+  border-radius: 15px 225px 15px 255px / 255px 15px 225px 15px;
+}
+.wobbly-lg {
+  border-radius: 225px 15px 255px 15px / 15px 255px 15px 225px;
+}
+
+/* Hard offset shadows */
+.shadow-hard {
+  box-shadow: 4px 4px 0px 0px #2d2d2d;
+}
+.shadow-hard-lg {
+  box-shadow: 8px 8px 0px 0px #2d2d2d;
+}
+.shadow-hard-sm {
+  box-shadow: 2px 2px 0px 0px #2d2d2d;
+}
+
+/* Hand-drawn button base */
+.hd-btn {
+  font-family: var(--font-hand), "Patrick Hand", cursive;
+  border: 3px solid #2d2d2d;
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  box-shadow: 4px 4px 0px 0px #2d2d2d;
+  transition: all 0.1s ease;
+}
+.hd-btn:hover {
+  background: #ff4d4d;
+  color: #ffffff;
+  box-shadow: 2px 2px 0px 0px #2d2d2d;
+  transform: translate(2px, 2px);
+}
+.hd-btn:active {
+  box-shadow: 0px 0px 0px 0px #2d2d2d;
+  transform: translate(4px, 4px);
 }

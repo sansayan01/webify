@@ -34,7 +34,7 @@ const SERVICES: Service[] = [
     icon: <Palette size={22} />,
     bullets: ["Design Systems", "Prototyping", "Brand Identity"],
     span: "md:col-span-4 md:row-span-1",
-    accent: "from-[#f5d77a]/25 to-transparent",
+    accent: "from-[#ff4d4d]/20 to-transparent",
   },
   {
     id: "dev",
@@ -43,16 +43,16 @@ const SERVICES: Service[] = [
     icon: <Code2 size={22} />,
     bullets: ["Next.js", "Edge / Serverless", "Headless CMS"],
     span: "md:col-span-2 md:row-span-1",
-    accent: "from-[#d4af37]/20 to-transparent",
+    accent: "from-[#2d5da1]/20 to-transparent",
   },
   {
     id: "3d",
     title: "3D & WebGL",
-    desc: "Immersive 3D, shaders, and motion that elevate your brand to Awwwards-tier.",
+    desc: "Immersive 3D, shaders, and motion that make your brand unforgettable.",
     icon: <Boxes size={22} />,
     bullets: ["Three.js / R3F", "GSAP / Framer", "Shaders"],
     span: "md:col-span-2 md:row-span-1",
-    accent: "from-[#b8932f]/25 to-transparent",
+    accent: "from-[#b8932f]/20 to-transparent",
   },
   {
     id: "seo",
@@ -61,7 +61,7 @@ const SERVICES: Service[] = [
     icon: <Search size={22} />,
     bullets: ["Core Web Vitals", "Technical SEO", "Analytics"],
     span: "md:col-span-4 md:row-span-1",
-    accent: "from-[#6f5316]/25 to-transparent",
+    accent: "from-[#6f5316]/20 to-transparent",
   },
 ];
 
@@ -69,16 +69,14 @@ function BentoCard({ service, index }: { service: Service; index: number }) {
   const ref = useRef<HTMLDivElement | null>(null);
   const mx = useMotionValue(0.5);
   const my = useMotionValue(0.5);
-  const rx = useSpring(useTransform(my, [0, 1], [6, -6]), {
+  const rx = useSpring(useTransform(my, [0, 1], [2, -2]), {
     damping: 22,
     stiffness: 220,
   });
-  const ry = useSpring(useTransform(mx, [0, 1], [-6, 6]), {
+  const ry = useSpring(useTransform(mx, [0, 1], [-2, 2]), {
     damping: 22,
     stiffness: 220,
   });
-  const bgX = useTransform(mx, [0, 1], ["0%", "100%"]);
-  const bgY = useTransform(my, [0, 1], ["0%", "100%"]);
 
   const onMove = (e: React.MouseEvent) => {
     const el = ref.current;
@@ -97,59 +95,39 @@ function BentoCard({ service, index }: { service: Service; index: number }) {
       ref={ref}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
-      style={{ rotateX: rx, rotateY: ry, transformStyle: "preserve-3d" }}
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      style={{ rotateX: rx, rotateY: ry }}
+      initial={{ opacity: 0, y: 40, rotate: index % 2 ? 1.5 : -1.5 }}
+      whileInView={{ opacity: 1, y: 0, rotate: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.7, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
       className={cn(
-        "group edge relative flex min-h-[260px] flex-col justify-between overflow-hidden rounded-3xl p-6 sm:p-8",
+        "group edge relative flex min-h-[260px] flex-col justify-between overflow-hidden p-6 sm:p-8",
         service.span
       )}
     >
-      {/* moving glow */}
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-        style={{
-          background: useTransform(
-            [bgX, bgY],
-            ([gx, gy]) =>
-              `radial-gradient(520px circle at ${gx} ${gy}, rgba(245,215,122,0.16), transparent 45%)`
-          ),
-        }}
-      />
-      {/* accent wash */}
-      <div
-        className={cn(
-          "pointer-events-none absolute -right-1/4 -top-1/4 h-2/3 w-2/3 rounded-full bg-gradient-to-br opacity-60 blur-2xl",
-          service.accent
-        )}
-      />
-
       {/* top row */}
-      <div className="relative flex items-start justify-between" style={{ transform: "translateZ(40px)" }}>
-        <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-[#f5d77a] backdrop-blur">
+      <div className="relative flex items-start justify-between">
+        <span className="inline-flex h-12 w-12 items-center justify-center border-2 border-[#2d2d2d] bg-[#fff9c4] text-[#2d2d2d]">
           {service.icon}
         </span>
-        <span className="font-display text-sm font-semibold text-white/20">
+        <span className="font-marker text-sm font-semibold text-[#2d2d2d]/30">
           0{index + 1}
         </span>
       </div>
 
       {/* body */}
-      <div className="relative mt-6" style={{ transform: "translateZ(30px)" }}>
-        <h3 className="font-display text-2xl font-bold tracking-tight text-white sm:text-3xl">
+      <div className="relative mt-6">
+        <h3 className="font-marker text-2xl font-bold tracking-tight text-[#2d2d2d] sm:text-3xl">
           {service.title}
         </h3>
-        <p className="mt-2 max-w-md text-sm text-white/60 sm:text-base">
+        <p className="mt-2 max-w-md font-hand text-sm text-[#2d2d2d]/70 sm:text-base">
           {service.desc}
         </p>
         <ul className="mt-4 flex flex-wrap gap-2">
           {service.bullets.map((b) => (
             <li
               key={b}
-              className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/55"
+              className="rounded-full border-2 border-[#2d2d2d] bg-white px-3 py-1 font-hand text-xs text-[#2d2d2d]/70"
             >
               {b}
             </li>
@@ -159,8 +137,7 @@ function BentoCard({ service, index }: { service: Service; index: number }) {
 
       {/* corner arrow */}
       <span
-        className="absolute bottom-6 right-6 inline-flex h-9 w-9 translate-y-2 items-center justify-center rounded-full bg-white/5 text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"
-        style={{ transform: "translateZ(50px)" }}
+        className="absolute bottom-6 right-6 inline-flex h-9 w-9 translate-y-2 items-center justify-center bg-[#ff4d4d] text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"
         aria-hidden
       >
         <ArrowUpRight size={16} />
@@ -182,15 +159,15 @@ export function Services() {
           className="flex flex-col items-start gap-4 sm:flex-row sm:items-end sm:justify-between"
         >
           <div>
-            <span className="text-xs font-medium uppercase tracking-[0.3em] text-[#f5d77a]/80">
+            <span className="font-hand text-xs font-medium uppercase tracking-[0.3em] text-[#ff4d4d]/80">
               What we do
             </span>
-            <h2 className="mt-3 max-w-xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl">
-              Services engineered for{" "}
-              <span className="text-gold-gradient">conversion</span>.
+            <h2 className="mt-3 max-w-xl font-marker text-4xl font-bold leading-[1.05] tracking-tight text-[#2d2d2d] sm:text-5xl">
+              Services built to{" "}
+              <span className="text-[#ff4d4d]">get you found</span>.
             </h2>
           </div>
-          <p className="max-w-sm text-sm text-white/55 sm:text-base">
+          <p className="max-w-sm font-hand text-sm text-[#2d2d2d]/60 sm:text-base">
             From first sketch to launch day and beyond — a full-stack craft
             studio under one roof. No handoffs, no compromise.
           </p>

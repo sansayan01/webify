@@ -20,16 +20,23 @@ function useFinePointer() {
 }
 
 /**
- * Premium Awwwards-style custom cursor.
- * - Outer ring follows pointer with spring physics (mix-blend-difference)
+ * Hand-drawn pencil cursor.
+ * - Outer ring (wobbly border) follows pointer with spring physics
  * - Inner dot tracks precisely
- * - Grows + changes color when hovering interactive elements
+ * - Grows + turns red when hovering interactive elements
  * - Disabled on touch devices
  */
 export function CustomCursor() {
   const enabled = useFinePointer();
   const [hovering, setHovering] = useState(false);
   const [down, setDown] = useState(false);
+
+  // Hide the native cursor only while the hand-drawn cursor is active.
+  useEffect(() => {
+    if (!enabled) return;
+    document.documentElement.classList.add("custom-cursor-active");
+    return () => document.documentElement.classList.remove("custom-cursor-active");
+  }, [enabled]);
 
   const x = useMotionValue(-100);
   const y = useMotionValue(-100);
@@ -69,7 +76,7 @@ export function CustomCursor() {
       {/* outer ring */}
       <motion.div
         aria-hidden
-        className="pointer-events-none fixed left-0 top-0 z-[9999] mix-blend-difference"
+        className="pointer-events-none fixed left-0 top-0 z-[9999]"
         style={{
           x: ringX,
           y: ringY,
@@ -78,16 +85,15 @@ export function CustomCursor() {
         }}
       >
         <motion.div
-          className="flex items-center justify-center rounded-full border"
+          className="flex items-center justify-center border-2 border-[#2d2d2d]"
+          style={{ borderRadius: "255px 15px 225px 15px / 15px 225px 15px 255px" }}
           animate={{
-            width: hovering ? 64 : 36,
-            height: hovering ? 64 : 36,
-            borderColor: hovering
-              ? "rgba(245,215,122,0.9)"
-              : "rgba(245,215,122,0.6)",
+            width: hovering ? 56 : 32,
+            height: hovering ? 56 : 32,
+            borderColor: hovering ? "rgba(255,77,77,0.9)" : "rgba(45,45,45,0.6)",
             backgroundColor: hovering
-              ? "rgba(245,215,122,0.10)"
-              : "rgba(245,215,122,0)",
+              ? "rgba(255,77,77,0.10)"
+              : "rgba(45,45,45,0)",
             scale: down ? 0.85 : 1,
           }}
           transition={{ type: "spring", damping: 22, stiffness: 320 }}
@@ -97,7 +103,7 @@ export function CustomCursor() {
       {/* inner dot */}
       <motion.div
         aria-hidden
-        className="pointer-events-none fixed left-0 top-0 z-[9999] h-1.5 w-1.5 rounded-full bg-[#f5d77a] mix-blend-difference"
+        className="pointer-events-none fixed left-0 top-0 z-[9999] h-1.5 w-1.5 rounded-full bg-[#ff4d4d]"
         style={{ x, y, translateX: "-50%", translateY: "-50%" }}
         animate={{ scale: down ? 0.6 : 1 }}
         transition={{ type: "spring", damping: 30, stiffness: 600 }}
